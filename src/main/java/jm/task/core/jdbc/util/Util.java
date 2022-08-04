@@ -6,28 +6,22 @@ import java.sql.SQLException;
 
 public class Util {
     // реализуйте настройку соеденения с БД
-    //новый тест гита
-
-    public static Connection getMySQLConnection() throws SQLException {
-        String hostName = "localhost";
-
-        String dbName = "userdb";
-        String userName = "root";
-        String password = "SoStrong#256";
-
-        return getMySQLConnection(hostName, dbName, userName, password);
-
-    }
-
-    public static Connection getMySQLConnection(String hostName, String dbName,
-                                                String userName, String password) throws SQLException
-            {
 
 
-        String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName;
+    public static Connection getConnection() {
 
-        Connection conn = DriverManager.getConnection(connectionURL, userName, password);
-        return conn;
-    }
+        Connection connection = null;
+
+        try {
+             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/userdb", "root", "SoStrong#256");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return connection;
+
+        }
 
 }
