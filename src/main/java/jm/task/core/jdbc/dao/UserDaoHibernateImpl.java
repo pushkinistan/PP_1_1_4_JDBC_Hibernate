@@ -3,6 +3,7 @@ package jm.task.core.jdbc.dao;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.HibernateException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,7 +17,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
     private Transaction transaction;
 
-    private SessionFactory sessionFactory = Util.getSessionFactory();
+    private final SessionFactory sessionFactory = Util.getSessionFactory();
 
     public UserDaoHibernateImpl() {
 
@@ -29,11 +30,11 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             session.createSQLQuery(
-                    "CREATE TABLE IF NOT EXISTS user(" +
-                            "id BIGINT PRIMARY KEY AUTO_INCREMENT," +
-                            "name TINYTEXT," +
-                            "lastName TINYTEXT," +
-                            "age TINYINT" + ")"
+                    "CREATE TABLE IF NOT EXISTS users(" +
+                            "id SERIAL PRIMARY KEY," +
+                            "name TEXT NOT NULL," +
+                            "lastName TEXT NOT NULL," +
+                            "age SMALLINT NOT NULL" + ")"
             ).executeUpdate();
             transaction.commit();
 
@@ -50,7 +51,7 @@ public class UserDaoHibernateImpl implements UserDao {
 
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
-            session.createSQLQuery("DROP TABLE IF EXISTS user").executeUpdate();
+            session.createSQLQuery("DROP TABLE IF EXISTS users").executeUpdate();
             transaction.commit();
 
         } catch (HibernateException he) {
@@ -95,7 +96,6 @@ public class UserDaoHibernateImpl implements UserDao {
         }
 
     }
-
 
     @Override
     public List<User> getAllUsers() {

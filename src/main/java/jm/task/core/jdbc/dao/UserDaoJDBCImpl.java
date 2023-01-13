@@ -20,10 +20,10 @@ public class UserDaoJDBCImpl implements UserDao {
             statement = connection.createStatement();
             statement.execute(
                     "CREATE TABLE IF NOT EXISTS users(" +
-                            "id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
-                            "name TINYTEXT NOT NULL," +
-                            "lastName TINYTEXT NOT NULL," +
-                            "age TINYINT NOT NULL" + ")"
+                            "id SERIAL PRIMARY KEY," +
+                            "name TEXT NOT NULL," +
+                            "lastName TEXT NOT NULL," +
+                            "age SMALLINT NOT NULL" + ")"
             );
         } catch (SQLException throwable) {
             throwable.printStackTrace();
@@ -75,7 +75,7 @@ public class UserDaoJDBCImpl implements UserDao {
             connection = Util.getConnection();
             preparedStatement = connection.prepareStatement(
                     "INSERT INTO users (name, lastName, age) " +
-                            "VALUE (?, ?, ?)"
+                            "VALUES (?, ?, ?)"
             );
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, lastName);

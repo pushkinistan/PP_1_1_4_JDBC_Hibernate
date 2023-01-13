@@ -13,7 +13,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="PP_1_1_4_JDBC_Hibernate" value="4a564608-31ce-47d3-8dd5-622d8ed0c8c3" />
+          <factory-entry name="PP_1_1_4_JDBC_Hibernate" value="221d556f-a484-418d-afd5-a2e3e9ee8526" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -31,8 +31,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.5.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.6.3.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" level="project" />
@@ -50,6 +50,5 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
-    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.6.3.Final" level="project" />
   </component>
 </module>

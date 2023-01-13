@@ -14,16 +14,13 @@ import java.util.Properties;
 
 public class Util {
     // реализуйте настройку соеденения с БД
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-
-
 
     public static Connection getConnection() {
 
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/userdb", "root", "SoStrong#256");
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/firstdb", "postgres", "root");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -39,11 +36,11 @@ public class Util {
 
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties properties = new Properties();
-                properties.put(Environment.DRIVER, DRIVER);
-                properties.put(Environment.URL, "jdbc:mysql://localhost:3306/userdb");
-                properties.put(Environment.USER, "root");
-                properties.put(Environment.PASS, "SoStrong#256");
-                properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+                properties.put(Environment.DRIVER, "org.postgresql.Driver");
+                properties.put(Environment.URL, "jdbc:postgresql://localhost:5432/firstdb");
+                properties.put(Environment.USER, "postgres");
+                properties.put(Environment.PASS, "root");
+                properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
 
                 properties.put(Environment.SHOW_SQL, "true");
 
